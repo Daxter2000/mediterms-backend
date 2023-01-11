@@ -17,9 +17,9 @@ module.exports = fp(async function (fastify, opts, done) {
     dbConfig.sequelize.sync().then(function () {
       console.log('Sequelize successfully initiated')
     })
-    await dbConfig.sequelize.query(
-      `CREATE DATABASE IF NOT EXISTS ${config[env]['database']};`
-    )
+    // await dbConfig.sequelize.query(
+    //   `CREATE DATABASE IF NOT EXISTS ${config[env]['database']};`
+    // )
   } catch (error) {
     console.error('Unable to connect to the database:', error)
   }
