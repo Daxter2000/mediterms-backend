@@ -1,13 +1,13 @@
 'use strict'
 
 const getUsers = async(request, reply, fastify) => {
-  const user = await fastify.db.User.findAll({})
+  const user = await fastify.db.user.findAll({})
   return {user}
 }
 
 const getSample = async(request, reply, fastify) => {
-  const samples = await fastify.db.sample_answer.findAll({})
-  return samples
+  // const samples =  await fastify.db.sample_answer.findAll({})
+  return {}
 }
 
 module.exports = async function (fastify, opts) {
