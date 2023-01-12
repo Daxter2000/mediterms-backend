@@ -19,6 +19,8 @@
   "license": "ISC",
   "dependencies": {
     "@fastify/autoload": "^5.0.0",
+    "@fastify/cors": "^8.2.0",
+    "@fastify/jwt": "^6.5.0",
     "@fastify/sensible": "^5.0.0",
     "fastify": "^4.0.0",
     "fastify-bcrypt": "^1.0.1",
