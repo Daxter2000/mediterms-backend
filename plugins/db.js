@@ -1,8 +1,8 @@
 'use strict'
 const dbConfig = require('../models/index.js')
 const fp = require('fastify-plugin')
-const config = require('../config/config.json')
-const env = process.env.NODE_ENV || 'development'
+// const config = require('../config/config.json')
+// const env = process.env.NODE_ENV || 'development'
 
 /**
  * This plugins adds some utilities to handle http errors
