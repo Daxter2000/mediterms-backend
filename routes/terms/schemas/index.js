@@ -39,7 +39,12 @@ const termJsonSchema = {
 }
 
 const sampleTermsJsonSchema = { 
-    ...termJsonSchema, ...{ description: "", summary: "", tags: ["sample_terms"]}
+    ...termJsonSchema, ...{ 
+        description: "", 
+        summary: "", 
+        tags: ["sample_terms"]
+        
+    }
 }
 
 module.exports = {termJsonSchema, sampleTermsJsonSchema}
