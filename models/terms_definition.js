@@ -3,22 +3,22 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class total_answers_by_topic extends Model {
+  class terms_definition extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      total_answers_by_topic.belongsTo(models.user)
-      total_answers_by_topic.belongsTo(models.topic)
+      terms_definition.hasOne(models.term)
+      terms_definition.hasOne(models.sample_term)
     }
   }
-  total_answers_by_topic.init({
-    answerSummary: DataTypes.INTEGER
+  terms_definition.init({
+    definition: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'total_answers_by_topic',
+    modelName: 'terms_definition',
   });
-  return total_answers_by_topic;
+  return terms_definition;
 };

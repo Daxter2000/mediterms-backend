@@ -16,6 +16,7 @@ const medicalTermObject = {
 }
 
 const termJsonSchema = {
+    // headers: {},
     // params: {},
     // body: {},
     response: {
@@ -27,7 +28,7 @@ const termJsonSchema = {
             content: {
                 'application/json':{
                     schema: {
-                        errors: {
+                        errors: {  
                             type: "array",
                             items: { type: "string" }
                         }
@@ -39,11 +40,17 @@ const termJsonSchema = {
 }
 
 const sampleTermsJsonSchema = { 
-    ...termJsonSchema, ...{ 
+    ...termJsonSchema, 
+    ...{ 
         description: "", 
         summary: "", 
-        tags: ["sample_terms"]
-        
+        tags: ["sample_terms"],
+        response: {
+            200: {
+                type: "array",
+                items: {...medicalTermObject}
+            }
+        }
     }
 }
 
