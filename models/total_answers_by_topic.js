@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      total_answers_by_topic.belongsTo(models.user)
+      total_answers_by_topic.belongsTo(models.topic)
     }
   }
   total_answers_by_topic.init({
