@@ -1,17 +1,14 @@
 
-const {getSampleTerms} = require("./controllers/index")
-const {sampleTermsJsonSchema} = require("./schemas/index")
+const {getSampleTerms, } = require("./controllers/index")
+const {getSampleTermsSchema, } = require("./schemas/index")
 
 module.exports = async function(fastify, opts, done ){
     const routes = [
         {
             method: 'GET',
             url: '/samples',
-            schema: {...sampleTermsJsonSchema},
-            // preHandler: () => {},
+            schema: {...getSampleTermsSchema},
             handler: (request, reply) => {
-                // console.log("Entro aqui")
-                // reply.send("Terminado")
                 getSampleTerms(request, reply, fastify)
             }
         }
