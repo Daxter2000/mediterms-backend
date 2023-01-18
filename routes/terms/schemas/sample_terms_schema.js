@@ -1,14 +1,14 @@
 
-const {errorObject, medicalTermObject} = require("./common_schemas")
+const {errorObject, sampleMedicalTermObject} = require("./common_schemas")
 
-const getSampleTermsSchema = {
+const fetchSampleTermsSchema = {
     description: "getting_sampling_terms", 
     summary: "", 
     tags: ["sample_terms"],
     response: {
         200: {
             type: "array",
-            items: {...medicalTermObject}
+            items: {...sampleMedicalTermObject}
         },
         "4xx": {
             ...errorObject
@@ -16,4 +16,4 @@ const getSampleTermsSchema = {
     }
 }
 
-module.exports = {getSampleTermsSchema}
+module.exports = {fetchSampleTermsSchema}
