@@ -35,5 +35,8 @@
   },
   "devDependencies": {
     "tap": "^16.1.0"
-  }
+  },
+  "imports": {
+		"#utils/*": "./utils/*.js"
+	}
 }

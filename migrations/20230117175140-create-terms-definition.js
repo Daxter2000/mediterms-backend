@@ -1,5 +1,5 @@
 'use strict';
-const { timestamp } = require("../utils/db_timestamps")
+const { timestamp } = require("../utils/models/db_timestamps")
 
 /** @type {import('sequelize-cli').Migration} */
 
