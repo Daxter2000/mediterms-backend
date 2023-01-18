@@ -1,5 +1,5 @@
 // GENERAL 
-const medicalTermObject = {
+const sampleMedicalTermObject = {
     type: 'object',
     properties: {
         term: { type: 'string' },
@@ -17,6 +17,35 @@ const medicalTermObject = {
     }
 }
 
+const medicalTermObject = {
+    type: 'object',
+    properties: {
+        id: {type: "integer"},
+        term: { type: 'string' },
+        topicId: {type: "integer"},
+        definitions: { 
+            type: 'array', 
+            items: {
+                type: "object",
+                properties: {
+                    id: {type: "integer"},
+                    answer: {type: "string"},
+                    correct_answer: {type: "boolean"}
+                }
+            } 
+        }
+    }
+}
+
+const TotalAnswersByTopicObject = {
+    type: 'object',
+    properties: {
+        answerSummary: {type: "string"},
+        userId: {type: "integer"},
+        topicId: {type: "integer"}
+    }
+}
+
 const errorObject = {
     type: "object",
     properties: {
@@ -31,4 +60,4 @@ const errorObject = {
     }
 }
 
-module.export = {errorObject, medicalTermObject}
+module.exports = {errorObject, medicalTermObject, sampleMedicalTermObject, TotalAnswersByTopicObject}

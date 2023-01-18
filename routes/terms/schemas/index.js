@@ -1,4 +1,6 @@
 
-const {getSampleTermsSchema} = require("./sample_terms_schema")
+const {fetchSampleTermsSchema} = require("./sample_terms_schema")
+const {fetchIndividualTermSchema, addToTopicCounterSchema } = require("./terms_schema")
 
-module.exports = {getSampleTermsSchema}
+
+module.exports = {fetchIndividualTermSchema, addToTopicCounterSchema, fetchSampleTermsSchema}
