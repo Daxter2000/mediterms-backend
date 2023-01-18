@@ -14,8 +14,16 @@ const handleCommonErrors = (e) =>{
     if( e instanceof QueryError)
         return {errors: [e.message], code: "SEQUELIZE_QUERY_ERROR"}
     if (e instanceof ValidationError) {
-        e.errors.map(error =>
-            errors.push(`${error.message}`)
+        e.errors.map(error =>{
+            let message = ""
+            switch (error.validatorKey) {
+                case 'isEmail':
+                    message = 'Porfavor inserte un correo electronico correcto'; break;
+                case 'not_unique':
+                    message = error.value + ' ha sido tomado. Seleccione otro'; break;
+            }
+            errors.push(`${message}`)
+            }
         )
         return {errors: errors, code: "SEQUELIZE_VALIDATION_ERROR"}
     }
