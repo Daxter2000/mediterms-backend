@@ -1,6 +1,7 @@
 
 
-const {getSampleTerms} = require("./sample_terms")
+const {fetchSampleTerms} = require("./sample_terms")
+const {fetchIndividualTerm, addToTopicCounter} = require("./terms")
 
 
-module.exports = {getSampleTerms}
+module.exports = {fetchSampleTerms, fetchIndividualTerm, addToTopicCounter}

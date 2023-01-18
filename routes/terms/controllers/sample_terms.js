@@ -1,7 +1,7 @@
 const {handleCommonErrors, } = require("#utils/controllers/index")
 
 
-const getSampleTerms =  async function(request, reply, fastify){
+const fetchSampleTerms =  async function(request, reply, fastify){
     const SampleTerm = fastify.db.sample_term
     const TermsDefinition = fastify.db.terms_definition
 
@@ -40,4 +40,4 @@ const getSampleTerms =  async function(request, reply, fastify){
     }
 }
 
-module.exports = { getSampleTerms}
+module.exports = { fetchSampleTerms}
