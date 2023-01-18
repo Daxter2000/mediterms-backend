@@ -1,6 +1,6 @@
 
-const { signUp } = require("./controllers/index")
-const {signUpSchema} = require("./schemas/index")
+const { signUp , signIn} = require("./controllers/index")
+const {signUpSchema, signInSchema} = require("./schemas/index")
 
 module.exports = async function(fastify, opts, done ){
     const routes = [
@@ -11,7 +11,15 @@ module.exports = async function(fastify, opts, done ){
             handler: (request, reply) => {
                 signUp(request, reply, fastify)
             }
-        }
+        },
+        {
+            method: 'POST',
+            url: '/sign_in',
+            schema: {...signInSchema},
+            handler: (request, reply) => {
+                signIn(request, reply, fastify)
+            }
+        },
     ]
 
     routes.map(route => fastify.route(route))
