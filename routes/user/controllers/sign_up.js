@@ -18,7 +18,8 @@ const signUp =  async function(request, reply, fastify){
         const token = fastify.jwt.sign({ userId: newUserRecord.id }, { expiresIn: '1 year' }) 
         // ASSIGN TOKEN
         // await User.update({
-        //     token: token
+        //      token: token,
+        //      last_sign_in: Date.now()
         // }, {
         //    where: { id: newUserRecord.id}
         // })
