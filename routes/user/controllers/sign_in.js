@@ -15,7 +15,7 @@ const signIn =  async function(request, reply, fastify){
 
         //MATCH PASSWORD
         const matchPassword = await fastify.bcrypt.compare(password, userRecord.password)
-        if (!matchPassword) reply.status(400).send({ errors: ['El usuario o la contraseña son incorrectas ' ], code: 'MDT_APP_PASSWORD_BAD_SUPPLIED' })
+        if (!matchPassword) return reply.status(400).send({ errors: ['El usuario o la contraseña son incorrectas ' ], code: 'MDT_APP_PASSWORD_BAD_SUPPLIED' })
 
         // CREATING TOKEN
         const token = fastify.jwt.sign({ userId: userRecord.id }, { expiresIn: '1 year' }) 
