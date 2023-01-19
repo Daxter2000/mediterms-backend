@@ -1,13 +1,31 @@
 
 const {handleCommonErrors, } = require("#utils/controllers/index")
 
-const resetPassword =  async function(request, reply, fastify){
-    // const User = fastify.db.user
+const generatePasswordRandomly = () => {
+    let password = Math.random().toString(36).slice(2) + Math.random().toString(36).toUpperCase().slice(2);
+    return password.split("").sort(()=>Math.random() - 0.5).join("")
+}
 
-    // const {email, password} = request.body
+const resetPassword =  async function(request, reply, fastify){
+    const User = fastify.db.user
+
+    const {email} = request.body
     try {
+        const userRecord = await User.findOne({
+            where: {email : email}
+        })
+       
+        if(!userRecord) return reply.status(401).send({errors: ['El correo electronico no existe' ], code: 'MDT_APP_USER_NOT_FOUND' })
+        const newPassword = generatePasswordRandomly()
+    
+        User.update({
+            password: await fastify.bcrypt.hash(newPassword)
+        },{
+            where: {email: email}
+        })
+       
+        //ENVIAR CORREO ELECTRONICO
         return reply.send({})
-        // return reply.send( {token, user: {name: userRecord.name, email: userRecord.email}})
     } catch (e) {
         reply.status(400).send({ ...handleCommonErrors(e) })
     }
@@ -43,4 +61,4 @@ const changePassword = async function(request, reply, fastify){
     }
 }
 
-module.exports = {changePassword}
+module.exports = {changePassword, resetPassword}
