@@ -1,5 +1,5 @@
 
-const { signUp , signIn} = require("./controllers/index")
+const { signUp , signIn, changePassword} = require("./controllers/index")
 const {signUpSchema, signInSchema} = require("./schemas/index")
 
 module.exports = async function(fastify, opts, done ){
@@ -18,6 +18,15 @@ module.exports = async function(fastify, opts, done ){
             schema: {...signInSchema},
             handler: (request, reply) => {
                 signIn(request, reply, fastify)
+            }
+        },
+        {
+            method: 'POST',
+            url: '/change_password',
+            // schema: {...signUpSchema},
+            preHandler: fastify.auth([fastify.verifyJWT]),
+            handler: (request, reply) => {
+                changePassword(request, reply, fastify)
             }
         },
     ]
