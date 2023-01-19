@@ -21,15 +21,11 @@ const signIn =  async function(request, reply, fastify){
        
         //SAVE THE TOKEN IN DATABASE
         await User.update({
-            token: token
+            token: token,
+            last_sign_in: Date.now()
         }, {
            where: { id: userRecord.id}
         })
-        // console.log(userRecord.email)
-        // const userRow = await User.findOne({where: {email: userRecord.email}})
-        // console.log(userRow)
-        // userRow.token = token
-        // await userRow.save();
 
         return reply.send( {token, user: {name: userRecord.name, email: userRecord.email}})
     } catch (e) {
