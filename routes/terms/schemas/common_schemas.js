@@ -40,7 +40,7 @@ const medicalTermObject = {
 const TotalAnswersByTopicObject = {
     type: 'object',
     properties: {
-        answerSummary: {type: "string"},
+        answerSummary: {type: "integer"},
         userId: {type: "integer"},
         topicId: {type: "integer"}
     }
