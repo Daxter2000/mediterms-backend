@@ -77,7 +77,8 @@ const addToTopicCounter = async function(request, reply, fastify){
     const TotalAnswersByTopic = fastify.db.total_answers_by_topic
 
     const {topicId} = request.params
-    const {userId} = request.body //CAMBIAR DE USUARIO POR EL TOKEN 
+    const {UserRecord} = await fastify.getUserId(fastify, request)
+    const userId = UserRecord.id
 
     try {
         const currentSummaryRecord = await TotalAnswersByTopic.findAll({
@@ -101,7 +102,7 @@ const addToTopicCounter = async function(request, reply, fastify){
         
         return reply.send(newRecord)
     } catch (e) {
-        reply.status(400).send({ ...handleCommonErrors(e) })
+        return reply.status(400).send({ ...handleCommonErrors(e) })
     }   
 }
 

@@ -16,6 +16,7 @@ module.exports = async function(fastify, opts, done ){
             method: 'GET',
             url: '/',
             schema: {...fetchIndividualTermSchema},
+            preHandler: fastify.auth([fastify.verifyJWT]),
             handler: (request, reply) => {
                 fetchIndividualTerm(request, reply, fastify)
             }
@@ -24,6 +25,7 @@ module.exports = async function(fastify, opts, done ){
             method: 'POST',
             url: '/correct/:topicId',
             schema: {...addToTopicCounterSchema},
+            preHandler: fastify.auth([fastify.verifyJWT]),
             handler: (request, reply) => {
                 addToTopicCounter(request, reply, fastify)
             }
