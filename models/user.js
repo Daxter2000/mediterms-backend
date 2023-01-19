@@ -36,6 +36,10 @@ module.exports = (sequelize, DataTypes) => {
         isDate: true, 
         isAfter: "2023-01-01",
       }
+    },
+    token: {
+      type: DataTypes.TEXT,
+      allowNull: true
     }
   }, {
     sequelize,

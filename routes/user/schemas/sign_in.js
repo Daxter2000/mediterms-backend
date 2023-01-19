@@ -1,15 +1,14 @@
 
 const {userResponseSchema, errorObject} = require("./common_schemas")
 
-const signUpSchema = {
+const signInSchema = {
     description: "sign_up_schema", 
     summary: "", 
     tags: ["sign_up"],
     body: {
         type: "object",
-        required: ["name", "email", "password"],
+        required: ["email", "password"],
         properties: {
-            name: {type: "string"},
             email: {type: "string"},
             password: {type: "string"}
         }
@@ -24,4 +23,4 @@ const signUpSchema = {
     }
 }
 
-module.exports = {signUpSchema}
+module.exports  ={signInSchema}
