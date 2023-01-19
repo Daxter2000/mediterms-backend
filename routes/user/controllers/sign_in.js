@@ -5,11 +5,12 @@ const signIn =  async function(request, reply, fastify){
 
     const {email, password} = request.body
     try {
-        const userRecord = await User.findOne({
+        let userRecord = await User.findOne({
             where: {email: email},
             raw: true
         })
-        
+        userRecord ||= []
+
         if(userRecord.length === 0) return reply.status(400).send({code: "MDT_APP_USER_NOT_FOUND", errors: ["El usuario o la contraseña son incorrectas "]})
 
         //MATCH PASSWORD
