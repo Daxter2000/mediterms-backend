@@ -2,6 +2,7 @@
 const sampleMedicalTermObject = {
     type: 'object',
     properties: {
+        id: {type: "string"},
         term: { type: 'string' },
         definitions: { 
             type: 'array', 
