@@ -5,10 +5,15 @@ const fetchSampleTermsSchema = {
     description: "getting_sampling_terms", 
     summary: "", 
     tags: ["sample_terms"],
+    querystring: {
+        type: 'object',
+        properties: {
+            previousIds: { type: 'array', items: {type: "string"}}
+        }
+    },
     response: {
         200: {
-            type: "array",
-            items: {...sampleMedicalTermObject}
+            ...sampleMedicalTermObject
         },
         "4xx": {
             ...errorObject
