@@ -23,6 +23,3 @@ const getSampleTerms =  async function(request, reply, fastify){
 }
 
 module.exports = { getSampleTerms}
-
-
-module.export = {getSampleTerms}
