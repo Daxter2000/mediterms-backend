@@ -14,7 +14,10 @@ const resetPasswordSchema = {
     },
     response: {
         200: {
-            ...userResponseSchema
+            type: "object",
+            properties: {
+                success: {type: "boolean"}
+            }
         },
         "4xx": {
             ...errorObject
@@ -28,10 +31,11 @@ const changePasswordSchema = {
     tags: ["user"],
     body: {
         type: "object",
-        required: ["newPassword", "password"],
+        required: ["newPassword", "confirmedPassword", "password"],
         properties: {
             newPassword: {type: "string"},
-            password: {type: "string"}
+            password: {type: "string"},
+            confirmedPassword: {type: "string"},
         }
     },
     response: {
@@ -44,4 +48,28 @@ const changePasswordSchema = {
     }
 }
 
-module.exports = {changePasswordSchema, resetPasswordSchema}
+const saveNewPasswordSchema = {
+    description: "change_password", 
+    summary: "", 
+    tags: ["user"],
+    body: {
+        type: "object",
+        required: ["newPassword", "confirmedPassword", "tokenPassword"],
+        properties: {
+            newPassword: {type: "string"},
+            confirmedPassword: {type: "string"},
+            tokenPassword: {type: "string"}
+        }
+    },
+    response: {
+        200: {
+            ...userResponseSchema
+        },
+        "4xx": {
+            ...errorObject
+        }
+    }
+}
+
+
+module.exports = {changePasswordSchema, resetPasswordSchema, saveNewPasswordSchema}
