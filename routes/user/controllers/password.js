@@ -68,7 +68,6 @@ const changePassword = async function(request, reply, fastify){
         return reply.send({user: {name: UserRecord.name, email: UserRecord.email}})
         // return reply.send( {token, user: {name: userRecord.name, email: userRecord.email}})
     } catch (e) {
-        console.log(e)
         return reply.status(400).send({ ...handleCommonErrors(e) })
     }
 }
@@ -86,7 +85,6 @@ const saveNewPassword = async function(request, reply, fastify){
         
         if(!userFound) return reply.status(400).send({ errors: ['EL usuario y/o el token no son validos' ], code: 'MDT_APP_PASSWORD_TOKEN_NOT_VALID' })
               
- 
         if(newPassword != confirmedPassword){
             return reply.status(400).send({errors: ["La contraseña nueva no esta confirmada"], code: "MDT_APP_PASSWORD_NOT_CONFIRMED"})
         }
@@ -104,7 +102,6 @@ const saveNewPassword = async function(request, reply, fastify){
         return reply.send({user: {name: userFound.name, email: userFound.email}})
         // return reply.send( {token, user: {name: userRecord.name, email: userRecord.email}})
     } catch (e) {
-        console.log(e)
         return reply.status(400).send({ ...handleCommonErrors(e) })
     }
 }
