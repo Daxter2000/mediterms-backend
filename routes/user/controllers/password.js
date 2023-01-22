@@ -83,7 +83,7 @@ const saveNewPassword = async function(request, reply, fastify){
             where: {tokenPassword: tokenPassword }
         })
         
-        if(!userFound) return reply.status(400).send({ errors: ['EL usuario y/o el token no son validos' ], code: 'MDT_APP_PASSWORD_TOKEN_NOT_VALID' })
+        if(!userFound) return reply.status(400).send({ errors: ['El codigo no es valido' ], code: 'MDT_APP_PASSWORD_TOKEN_NOT_VALID' })
               
         if(newPassword != confirmedPassword){
             return reply.status(400).send({errors: ["La contraseña nueva no esta confirmada"], code: "MDT_APP_PASSWORD_NOT_CONFIRMED"})
