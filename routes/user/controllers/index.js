@@ -2,6 +2,6 @@
 
 const {signUp} = require("./sign_up")
 const {signIn} = require("./sign_in")
-const {changePassword, resetPassword} = require("./password")
+const {changePassword, resetPassword, saveNewPassword} = require("./password")
 
-module.exports = {signUp, signIn, changePassword, resetPassword}
+module.exports = {signUp, signIn, changePassword, resetPassword, saveNewPassword}

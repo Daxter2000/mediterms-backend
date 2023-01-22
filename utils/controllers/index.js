@@ -27,7 +27,10 @@ const handleCommonErrors = (e) =>{
         )
         return {errors: errors, code: "SEQUELIZE_VALIDATION_ERROR"}
     }
-    
+    if( e.code === "InvalidParameterValue") 
+        return {errors: [e.message], code: "SES_JSON_BAD_FORMATTED"}
+    if(e.code  === "MessageRejected")
+        return {errors: [e.message], code: "SES_MESSAGE_REJECTED"}
     return {errors: [e.message], code: "CODE_STILL_NOT_IDENTIFIED"}
 }
 

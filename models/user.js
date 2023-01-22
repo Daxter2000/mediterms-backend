@@ -40,6 +40,10 @@ module.exports = (sequelize, DataTypes) => {
     token: {
       type: DataTypes.TEXT,
       allowNull: true
+    },
+    tokenPassword: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
   }, {
     sequelize,
