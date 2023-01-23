@@ -1,9 +1,17 @@
 
-const { signUp , signIn, changePassword, resetPassword, saveNewPassword} = require("./controllers/index")
-const {signUpSchema, signInSchema, changePasswordSchema, resetPasswordSchema, saveNewPasswordSchema}  = require("./schemas/index")
+const { signUp , signIn, changePassword, resetPassword, saveNewPassword, validateEmail} = require("./controllers/index")
+const {signUpSchema, signInSchema, changePasswordSchema, resetPasswordSchema, saveNewPasswordSchema,validateEmailSchema}  = require("./schemas/index")
 
 module.exports = async function(fastify, opts, done ){
     const routes = [
+        {
+            method: 'GET',
+            url: '/email/validate',
+            schema: {...validateEmailSchema},
+            handler: (request, reply) => {
+                validateEmail(request, reply, fastify)
+            }
+        },
         {
             method: 'POST',
             url: '/signup',
