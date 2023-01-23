@@ -11,7 +11,7 @@ module.exports = {
           "termsDefinitionId": 65,
           "definition_1": "Etim: Ojo",
           "definition_2": "Etim: Ocho",
-          "createdAt": "0000-00-00 00:00:00",
+          "createdAt": "2023-01-17 13:42:32",
           "updatedAt": "2023-01-17 13:50:17"
         },
         {
@@ -20,7 +20,7 @@ module.exports = {
           "termsDefinitionId": 539,
           "definition_1": "Etim: Dolor",
           "definition_2": "Etim: Infeccion",
-          "createdAt": "0000-00-00 00:00:00",
+          "createdAt": "2023-01-17 13:42:32",
           "updatedAt": "2023-01-17 13:52:00"
         },
         {
