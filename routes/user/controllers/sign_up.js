@@ -17,12 +17,12 @@ const signUp =  async function(request, reply, fastify){
 
         const token = fastify.jwt.sign({ userId: newUserRecord.id }, { expiresIn: '1 year' }) 
         // ASSIGN TOKEN
-        // await User.update({
-        //      token: token,
-        //      last_sign_in: Date.now()
-        // }, {
-        //    where: { id: newUserRecord.id}
-        // })
+        await User.update({
+             token: token,
+             last_sign_in: Date.now()
+        }, {
+           where: { id: newUserRecord.id}
+        })
         // STRIPE PROCESO DE PAGAR
         return reply.send( {token, user: {name: newUserRecord.name, email: newUserRecord.email}})
     } catch (e) {

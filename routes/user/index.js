@@ -6,7 +6,7 @@ module.exports = async function(fastify, opts, done ){
     const routes = [
         {
             method: 'POST',
-            url: '/sign_up',
+            url: '/signup',
             schema: {...signUpSchema},
             handler: (request, reply) => {
                 signUp(request, reply, fastify)
@@ -14,7 +14,7 @@ module.exports = async function(fastify, opts, done ){
         },
         {
             method: 'POST',
-            url: '/sign_in',
+            url: '/login',
             schema: {...signInSchema},
             handler: (request, reply) => {
                 signIn(request, reply, fastify)
