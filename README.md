@@ -20,11 +20,23 @@
         NODE_ENV="development"
         DATABASE_URL="mysql://root:@localhost:3306/mediterms"
         DATABASE_NAME="mediterms"
+        JWT_SECRET=""
+        AWS_REGION=""
+        AWS_SECRET_ACCESS_KEY=""
+        AWS_SECRET_ACCESS_ID=""
     ```
     - If need be, change the params to suit your database preference. `mysql://user:password@localhost:3306/mediterms`
+    - For the last environment variables, inquire about them.
 
 5. Create the database `mediterms`
-
+6. Run the seeders files
+    ```
+       npx sequelize db:seed:all 
+    ```
+    - In case of error, reset the seeder
+    ```
+       npx sequelize db:seed:undo:all
+    ```
 
 ### Run
 - To start server run in terminal `npm run dev` and you could see the console output in the terminal.
