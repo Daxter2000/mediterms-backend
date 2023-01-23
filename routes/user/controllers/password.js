@@ -16,7 +16,7 @@ const resetPassword =  async function(request, reply, fastify){
             where: {email : email}
         })
        
-        if(!userRecord) return reply.status(401).send({errors: ['El correo electronico no existe' ], code: 'MDT_APP_USER_NOT_FOUND' })
+        if(!userRecord) return reply.status(401).send({errors: ['El correo electronico no esta registrado' ], code: 'MDT_APP_USER_NOT_FOUND' })
         const tokenPassword = generatePasswordRandomly()
     
         User.update({
@@ -28,10 +28,10 @@ const resetPassword =  async function(request, reply, fastify){
         //ENVIAR CORREO ELECTRONICO
          const sesService =  new SES()
          const params = {
-             addresses: ["omar.murillo@inteligene.com"],
+             addresses: [userRecord.email],
              sourceAddress: "MediTerms <soporte@mediterms.app>",
              template: "MDT_Restore_Password_Template",
-             templateData: `{ "email":"${email}", "link":"?tokenPassword=${tokenPassword}"}`
+             templateData: `{ "email":"${email}", "link":"${tokenPassword}"}`
          }
         const response = await sesService.sendTemplatedEmail(params)
         return reply.send({success: true})
