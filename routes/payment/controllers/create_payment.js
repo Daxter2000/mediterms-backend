@@ -8,13 +8,13 @@ const createPayment =  async function(request, reply, fastify){
     // const {  }  = request.params
     // const {  } = request.body
 
-    const { paymentMethodType } = request.body;
+    //const { paymentMethodType } = request.body;
     try {
     
         const paymentIntent = await stripe.paymentIntents.create({
             amount: 2000,
             currency: 'mxn',
-            payment_method_types: [paymentMethodType] ,
+            payment_method_types: ["card"],
             });
             reply.send({ clientSecret: paymentIntent.client_secret });
 
