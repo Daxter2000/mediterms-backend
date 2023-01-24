@@ -2,8 +2,8 @@
 const {userResponseSchema, errorObject} = require("./common_schemas")
 
 const resetPasswordSchema = {
-    description: "reset_password", 
-    summary: "", 
+    description: "Recuperar la contraseña a traves del correo electronico", 
+    summary: "Recuperar la contraseña", 
     tags: ["user"],
     body: {
         type: "object",
@@ -26,9 +26,10 @@ const resetPasswordSchema = {
 }
 
 const changePasswordSchema = {
-    description: "change_password", 
-    summary: "", 
+    description: "Cambiar la contraseña dentro de la aplicacion", 
+    summary: "Cambiar la contraseña", 
     tags: ["user"],
+    security: [{ token: [] }],
     body: {
         type: "object",
         required: ["newPassword", "confirmedPassword", "password"],
@@ -49,8 +50,8 @@ const changePasswordSchema = {
 }
 
 const saveNewPasswordSchema = {
-    description: "change_password", 
-    summary: "", 
+    description: "Cambiar contraseña cuando se accede desde el codigo enviado al correo", 
+    summary: "Cambiar contraseña con codigo", 
     tags: ["user"],
     body: {
         type: "object",

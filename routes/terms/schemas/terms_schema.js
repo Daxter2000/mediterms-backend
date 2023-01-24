@@ -3,9 +3,10 @@ const {errorObject, medicalTermObject, TotalAnswersByTopicObject}  = require("./
 
 
 const fetchIndividualTermSchema = {
-    description: "getting_individual_terms", 
-    summary: "", 
+    description: "Obtiene los terminos uno por uno, de acuerdo al topic id", 
+    summary: "Obtener los terminos uno por uno", 
     tags: ["terms"],
+    security: [{ token: [] }],
     querystring: {
         type: 'object',
         properties: {
@@ -24,9 +25,10 @@ const fetchIndividualTermSchema = {
 }
 
 const addToTopicCounterSchema = {
-    description: "accumulate_correct_terms", 
-    summary: "", 
+    description: "Aumentar el contador por topico de acuerdo con usuario", 
+    summary: "Aumentar el contador por topico", 
     tags: ["terms"],
+    security: [{ token: [] }],
     params: {
         type: 'object',
         properties: {

@@ -2,9 +2,10 @@
 const {errorObject} = require("./common_schemas")
 
 const validateEmailSchema = {
-    description: "reset_password", 
-    summary: "", 
+    description: "Valida el correo electronico para determinar si ya ha sido usado", 
+    summary: "Valida el correo electronico", 
     tags: ["user"],
+    security: [{ token: [] }],
     query: {
         type: "object",
         required: ["email"],

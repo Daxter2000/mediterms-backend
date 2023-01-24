@@ -2,8 +2,8 @@
 const {errorObject, topicObject} = require("./common_schemas")
 
 const fetchAllTopicsSchema = {
-    description: "getting_all_topics", 
-    summary: "", 
+    description: "Obtiene todos los topicos de la base de datos", 
+    summary: "Obtener los topicos", 
     tags: ["topics"],
     response: {
         200: {
