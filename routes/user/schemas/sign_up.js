@@ -2,9 +2,9 @@
 const {userResponseSchema, errorObject} = require("./common_schemas")
 
 const signUpSchema = {
-    description: "sign_up_schema", 
-    summary: "", 
-    tags: ["sign_up"],
+    description: "Registrarse a la aplicacion", 
+    summary: "Registrarse a la aplicacion ", 
+    tags: ["Register/signing up"],
     body: {
         type: "object",
         required: ["name", "email", "password"],

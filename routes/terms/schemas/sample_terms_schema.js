@@ -2,9 +2,9 @@
 const {errorObject, sampleMedicalTermObject} = require("./common_schemas")
 
 const fetchSampleTermsSchema = {
-    description: "getting_sampling_terms", 
-    summary: "", 
-    tags: ["sample_terms"],
+    description: "Obtiene los cinco terminos de prueba que aparecen al inicio", 
+    summary: "Obtener los terminos de prueba", 
+    tags: ["terms"],
     querystring: {
         type: 'object',
         properties: {
