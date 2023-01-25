@@ -16,7 +16,7 @@ const createPayment =  async function(request, reply, fastify){
             currency: 'mxn',
             payment_method_types: ["card"],
             });
-            reply.send({ clientSecret: paymentIntent.client_secret });
+            reply.send({ secret_client: paymentIntent.client_secret });
 
     } catch (e) {
         reply.code(400).send({ has_error: true, error: e.message })
