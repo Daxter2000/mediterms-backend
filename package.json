@@ -10,6 +10,7 @@
     "test": "test"
   },
   "scripts": {
+    "seed": "npx sequelize db:seed:undo:all && npx sequelize db:seed:all",
     "test": "tap \"test/**/*.test.js\"",
     "start": "fastify start -l info app.js",
     "dev": "npx sequelize-cli db:migrate && fastify start -w -l info -P app.js"
