@@ -5,7 +5,7 @@ const signUp =  async function(request, reply, fastify){
     const User = fastify.db.user
     const UserPaymentData = fastify.db.user_payment_data
 
-    const {name, email, password, client_secret} = request.body
+    const {name, email, password, clientSecret} = request.body
     try {
         const newUserRecord = await User.build({
             name,
@@ -24,14 +24,15 @@ const signUp =  async function(request, reply, fastify){
         }, {
            where: { id: newUserRecord.id}
         })
-
-        const paymentData = await UserPaymentData.UserPaymentData.build({
+        console.log("builging payment data"
+        )
+        const paymentData = await UserPaymentData.build({
             userId: newUserRecord.id,
-            stripeTransaction_id: client_secret,
+            stripeTransaction_id: clientSecret.clientSecret,
             expirationMonths: 12,
             subscription_date: Date.now()
         })
-
+        console.log(paymentData)
         await paymentData.validate()
         await paymentData.save()
         

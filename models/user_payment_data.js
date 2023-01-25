@@ -14,10 +14,26 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   user_payment_data.init({
-    subscription_date: DataTypes.DATE
-  }, {
-    sequelize,
-    modelName: 'user_payment_data',
-  });
+
+    subscription_date: DataTypes.DATE,
+
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    expirationMonths: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    stripeTransaction_id: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
+  }
+    , {
+      sequelize,
+      modelName: 'user_payment_data',
+    });
   return user_payment_data;
 };
